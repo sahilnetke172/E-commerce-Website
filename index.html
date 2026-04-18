@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSphere - Your Ultimate Shopping Destination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">🛒 ShopSphere</a>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-box" placeholder="Search for products, brands and more..." id="searchInput">
+            </div>
+            <div class="header-actions">
+                <div class="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories -->
+    <nav class="categories">
+        <div class="categories-container">
+            <button class="category-btn active" data-category="all">All Products</button>
+            <button class="category-btn" data-category="electronics">Electronics</button>
+            <button class="category-btn" data-category="clothing">Clothing</button>
+            <button class="category-btn" data-category="books">Books</button>
+            <button class="category-btn" data-category="home">Home & Kitchen</button>
+            <button class="category-btn" data-category="sports">Sports</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Sidebar Filters -->
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3><i class="fas fa-filter"></i> Price Range</h3>
+                <input type="range" class="price-range" min="0" max="200000" value="50000" id="priceRange">
+                <div id="priceValue">₹0 - ₹2,00,000</div>
+            </div>
+            <div class="filter-group">
+                <h3><i class="fas fa-star"></i> Rating</h3>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="5" class="rating-filter"> 5 Stars & Above
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="4" class="rating-filter"> 4 Stars & Above
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="3" class="rating-filter"> 3 Stars & Above
+                </label>
+            </div>
+            <div class="filter-group">
+                <h3><i class="fas fa-tags"></i> Brands</h3>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="apple" class="brand-filter"> Apple
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="samsung" class="brand-filter"> Samsung
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="nike" class="brand-filter"> Nike
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="sony" class="brand-filter"> Sony
+                </label>
+            </div>
+        </aside>
+
+        <!-- Products Section -->
+        <section>
+            <div class="products-section">
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                </div>
+                <div class="products-grid" id="productsGrid"></div>
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No products found</h3>
+                    <p>Try adjusting your search or filters</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close" id="closeCart">&times;</span>
+            <h2>My Cart</h2>
+            <div id="cartItems">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart" style="font-size: 4rem; color: #ddd;"></i>
+                    <p>Your cart is empty</p>
+                </div>
+            </div>
+            <div class="cart-total">
+                <h3>Total: <span id="cartTotal">₹0</span></h3>
+                <button class="checkout-btn" id="checkoutBtn" style="display: none;" onclick="checkout()">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
